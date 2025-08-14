@@ -39,6 +39,7 @@ function onEachFeature(feature, layer) {
 */
 function onEachFeature(feature, layer) {
   var name = feature?.properties?.full_name || "";
+name = name.replace(" ", "<br>");
   if (name) {
     // クリック不要の常時表示ラベル
     layer.bindTooltip(name, {
