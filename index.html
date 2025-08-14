@@ -77,7 +77,18 @@ function Data_OnLoad(data) {
     onEachFeature: onEachFeature,
     style: function(feature){
       var name = (feature.properties && feature.properties.full_name) || "";
-      var fill = colorMap[name];
+		name = name.replaceAll(" ", "")
+      var num = colorMap[name];
+		var fill = 'white';
+
+		if (num == 1) fill = 'pink';
+		if (num == 2) fill = 'cyan';
+		if (num == 3) fill = 'gold';
+		if (num == 4) fill = 'salmon';
+		if (num == 6) fill = 'lightgreen';
+		if (num == 7) fill = 'gray';
+
+
       return {
         color: '#666',        // 境界線色
         weight: 0.5,          // 境界線の太さ
